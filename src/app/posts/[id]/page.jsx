@@ -3,7 +3,7 @@ import axios from "axios";
 export default async function page({ params }) {
   const { id } = await params;
   const data = await axios
-    .post("https://learn-backend-for-frontend-9wdh.vercel.app/getPostById", { id })
+    .post("https://learn-backend-for-frontend-9wdh.vercel.app/api/getPostById", { id })
     .then(({ data }) => data)
     .catch((err) => err);
 
