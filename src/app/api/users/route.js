@@ -1,8 +1,6 @@
-const users = [
-  { name: "ali", age: 20 },
-  { name: "hasan", age: 18 },
-];
+import { prisma } from "../../../../lib/prisma";
 
 export async function GET() {
+  const users = await prisma.user.findMany();
   return Response.json(users, { status: 200 });
 }

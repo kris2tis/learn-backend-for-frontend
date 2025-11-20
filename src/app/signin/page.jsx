@@ -3,8 +3,12 @@
 import axios from "axios";
 
 export default function page() {
-  const handleOnSubmit = (e) => {
-    axios.post("/api/send-email", e).then((res) => console.log(res)).catch((err) => console.log(err))
+  const handleOnSubmit = async (e) => {
+    const data = await axios
+      .post("/api/send-email", e)
+      .then(({ data }) => data)
+      .catch((err) => console.log(err));
+  
   };
   return (
     <form action={handleOnSubmit}>
